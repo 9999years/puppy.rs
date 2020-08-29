@@ -1,6 +1,6 @@
 [package]
 name = "puppy"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Kat Spiers <kathryn@spiers.me>"]
 description = "fortune but good tweets"
 edition = "2018"
