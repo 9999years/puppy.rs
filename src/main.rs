@@ -14,7 +14,8 @@ impl fmt::Display for Fortune {
 }
 
 fn main() {
-    let puppy_tweets: Vec<Fortune> = serde_json::from_str(include_str!("puppy.json")).unwrap();
+    let puppy_tweets: Vec<Fortune> =
+        serde_json::from_str(include_str!("../data/puppy.json")).unwrap();
     println!(
         "{}",
         puppy_tweets[rand::thread_rng().gen_range(0, puppy_tweets.len())]
