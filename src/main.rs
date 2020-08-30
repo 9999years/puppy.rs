@@ -1,6 +1,8 @@
+use std::fmt;
+
 use rand::Rng;
 use serde::Deserialize;
-use std::fmt;
+use structopt::StructOpt;
 
 #[derive(Debug, Deserialize)]
 pub struct Fortune {
@@ -14,6 +16,7 @@ impl fmt::Display for Fortune {
 }
 
 fn main() {
+    let _opt = Opt::from_args();
     let puppy_tweets: Vec<Fortune> =
         serde_json::from_str(include_str!("../data/puppy.json")).unwrap();
     println!(
@@ -21,3 +24,7 @@ fn main() {
         puppy_tweets[rand::thread_rng().gen_range(0, puppy_tweets.len())]
     );
 }
+
+/// what if fortune but with puppy tweets
+#[derive(StructOpt)]
+struct Opt {}
