@@ -1,12 +1,10 @@
 use rand::Rng;
-use serde::{Deserialize};
-use serde_json;
+use serde::Deserialize;
 use std::fmt;
 
 #[derive(Debug, Deserialize)]
-pub struct Fortune
-{
-    pt: String
+pub struct Fortune {
+    pt: String,
 }
 
 impl fmt::Display for Fortune {
@@ -17,5 +15,8 @@ impl fmt::Display for Fortune {
 
 fn main() {
     let puppy_tweets: Vec<Fortune> = serde_json::from_str(include_str!("puppy.json")).unwrap();
-    println!("{}", puppy_tweets[rand::thread_rng().gen_range(0, puppy_tweets.len())]);
+    println!(
+        "{}",
+        puppy_tweets[rand::thread_rng().gen_range(0, puppy_tweets.len())]
+    );
 }
