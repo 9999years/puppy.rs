@@ -16,7 +16,12 @@ impl fmt::Display for Fortune {
 }
 
 fn main() {
-    let _opt = Opt::from_args();
+    let opt = Opt::from_args();
+    if opt.ascii {
+        let ascii_puppy = include_str!("../data/puppy.ascii");
+        println!("{}", ascii_puppy);
+        return ();
+    }
     let puppy_tweets: Vec<Fortune> =
         serde_json::from_str(include_str!("../data/puppy.json")).unwrap();
     println!(
@@ -26,5 +31,9 @@ fn main() {
 }
 
 /// what if fortune but with puppy tweets
-#[derive(StructOpt)]
-struct Opt {}
+#[derive(StructOpt, Debug)]
+struct Opt {
+    /// Prints ascii puppy
+    #[structopt(short, long)]
+    ascii: bool,
+}
