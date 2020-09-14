@@ -135,7 +135,7 @@ dependencies = [
 
 [[package]]
 name = "puppy"
-version = "0.0.6"
+version = "0.0.7"
 dependencies = [
  "rand",
  "serde",
